@@ -40,10 +40,54 @@ public class Demo {
     @PostMapping("money")
     public String getMoney(Model model, @RequestParam String vnd) {
 
-        int over= Integer.parseInt(vnd);
-        model.addAttribute("vnd",vnd);
-        model.addAttribute("dola",over*23000);
+        int over = Integer.parseInt(vnd);
+        model.addAttribute("vnd", vnd);
+        model.addAttribute("dola", over * 23000);
         return "money";
+    }
+
+    @GetMapping("calculator")
+    public String showCalculator() {
+        return "calculator";
+    }
+
+    @PostMapping("calculator")
+    public String getCalculator(Model model, @RequestParam String numberA, String numberB, String result) {
+
+        if (result.equals("Cong")) {
+            int a = Integer.parseInt(numberA);
+            int b = Integer.parseInt(numberB);
+            model.addAttribute("result", a + b);
+            model.addAttribute("numberA", a);
+            model.addAttribute("numberB", b);
+
+        }
+        if (result.equals("tru")) {
+            int a = Integer.parseInt(numberA);
+            int b = Integer.parseInt(numberB);
+            model.addAttribute("result", a - b);
+            model.addAttribute("numberA", a);
+            model.addAttribute("numberB", b);
+
+        }
+        if (result.equals("nhan")) {
+            int a = Integer.parseInt(numberA);
+            int b = Integer.parseInt(numberB);
+            model.addAttribute("result", a * b);
+            model.addAttribute("numberA", a);
+            model.addAttribute("numberB", b);
+
+        }
+        if (result.equals("chia")) {
+            int a = Integer.parseInt(numberA);
+            int b = Integer.parseInt(numberB);
+            model.addAttribute("result", a / b);
+            model.addAttribute("numberA", a);
+            model.addAttribute("numberB", b);
+
+        }
+
+        return "calculator";
     }
 
 
