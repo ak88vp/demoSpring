@@ -14,5 +14,7 @@
   <a href="/money"> click </a>
   <br>
   <a href="/calculator">  calculator </a>
+  <br>
+  <a href="/magnetism">  magnetism </a>
   </body>
 </html>

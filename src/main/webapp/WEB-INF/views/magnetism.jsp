@@ -16,7 +16,7 @@
         <input type="text" name="key">
         <button> dịch</button>
     </form>
-   kết quả ${result}
+    ${result}
 </center>
 </body>
 </html>

@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Controller
 public class Demo {
     @GetMapping("")
@@ -90,5 +93,28 @@ public class Demo {
         return "calculator";
     }
 
+    @GetMapping("magnetism")
+    public String showMagnetism(){
+        return "magnetism";
+    }
+    @PostMapping("magnetism")
+    public String getMagnetism(Model model,@RequestParam String key){
+        Map<String ,String> stringStringMap=new HashMap<>();
+        int a=0;
+      stringStringMap.put("xin chao","vang khong dam");
+      stringStringMap.put("tam biet","cut  me di");
+        for (int i = 0; i < stringStringMap.size(); i++) {
+            if(stringStringMap.containsKey(key)){
+                model.addAttribute("result",stringStringMap.get(key));
+                a=1;
+            }
+
+        }
+        if(a==0){
+            model.addAttribute("result","can not find");
+        }
+
+        return "magnetism";
+    }
 
 }
